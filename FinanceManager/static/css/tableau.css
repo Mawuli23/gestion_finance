@@ -1,0 +1,79 @@
+/* Style pour les tableaux */
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #4a90e2;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Style pour les lignes de total 
+tr:last-child td {
+    font-weight: bold;
+    background-color: #e2e6ea;
+    color: #333;
+}*/
+
+/* Total global */
+h3 {
+    margin-top: 20px;
+    text-align: left;
+    color: #4a90e2;
+}
+
+h1, h2, h3 {
+    color: #4a90e2;
+    width: 50%;
+}
+
+h2{
+    text-align: center;
+    margin-top: 2rem;
+    color: rgb(9, 9, 37);
+}
+
+
+/* Style de fond pour "POSITIF" et "NÉGATIF" */
+.positif-true {
+    background-color: #4CAF50; /* Vert pour VRAI dans la colonne POSITIF */
+    color: white;
+}
+
+.negatif-true {
+    background-color: #f44336; /* Rouge pour VRAI dans la colonne NÉGATIF */
+    color: white;
+}
+
+#positif {
+    background-color: #4CAF50; /* Vert pour VRAI dans la colonne POSITIF */
+    color: white;
+}
+
+#negatif {
+    background-color: #f44336; /* Rouge pour VRAI dans la colonne NÉGATIF */
+    color: white;
+}
+
+
+tr:last-child td {
+    font-weight: bold;
+    background-color: #e2e6ea;
+    color: #333;
+}

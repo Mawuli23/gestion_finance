@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+    <title>{% block title %}Mes Revenus{% endblock %}</title>
+    {% block content %}
+    <h1>Liste de mes Revenus</h1>
+
+    <!-- Tableau pour les revenus Fixes -->
+    <h2>Revenus Fixes</h2>
+    <table>
+        <tr>
+            <th >Intitulé</th>
+            <th >Montant (€)</th>
+            <th >Action</th>
+        </tr>
+        {% for revenu in revenus_fixes %}
+            <tr>
+                <td >{{ revenu.name }}</td>
+                <td >{{ revenu.amount }}</td>
+                <td>
+            <a href="{% url 'modifier_revenu' revenu.pk %}">Modifier</a> |
+            <a href="{% url 'supprimer_revenu' revenu.pk %}">Supprimer</a>
+        </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">Aucun revenu fixe trouvé.</td>
+            </tr>
+        {% endfor %}
+        <!-- Ligne de total pour les revenus Fixes -->
+        <tr>
+            <td ><strong>Total Fixes</strong></td>
+            <td colspan="2"><strong>{{ total_fixes }} €</strong></td>
+        </tr>
+    </table>
+
+    <!-- Tableau pour les revenus Variables -->
+    <h2>Revenus Variables</h2>
+    <table>
+        <tr>
+            <th >Intitulé</th>
+            <th  >Montant (€)</th>
+            <th  >Action</th>
+        </tr>
+        {% for revenu in revenus_variables %}
+            <tr>
+                <td >{{ revenu.name }}</td>
+                <td >{{ revenu.amount }}</td>
+                <td>
+            <a href="{% url 'modifier_revenu' revenu.pk %}">Modifier</a> |
+            <a href="{% url 'supprimer_revenu' revenu.pk %}">Supprimer</a>
+        </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">Aucun revenu variable trouvé.</td>
+            </tr>
+        {% endfor %}
+        <!-- Ligne de total pour les revenus Variables -->
+        <tr>
+            <td ><strong>Total Variables</strong></td>
+            <td colspan="2"><strong>{{ total_variables }} €</strong></td>
+        </tr>
+    </table>
+
+    <!-- Total global -->
+
+    <h3>Revenu Global : &ensp; &ensp; <strong>{{ total_global }} €</strong> </h3>
+
+    <a href="{% url 'ajouter_revenu' %}">Ajouter un revenu</a>
+    {% endblock %}
+
+
+
+
+

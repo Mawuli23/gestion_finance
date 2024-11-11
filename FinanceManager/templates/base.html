@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Gestion de finance{% endblock%}</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul>
+          <a href="{% url 'home' %}"><li>Accueil</li></a>
+          <a href="{% url 'liste_revenus' %}"><li>Revenus</li></a>
+          <a href="{% url 'liste_charges' %}"><li>Charges</li></a>
+          <a href="{% url 'liste_epargnes' %}"><li>Epargnes et Investissements</li></a>
+          <a href="{% url 'bilan_financier' %}"><li>Bilan</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      <section class="bienvenu">
+      <h1 >La plateforme gratuite pour gérer vos finance</h1>
+      
+      <div class="user-affiche">
+        {% if user.is_authenticated %}
+      <p>Vous êtes connecté {{user.prenoms}} {{user.nom}}</p>
+      <form class="deconnexion" method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Déconnexion" />
+      </form>
+
+      {% else %}
+      <a href="{% url 'signup' %}"><p>S'inscrire</p></a>
+      <a href="{% url 'profile' %}"><p>Se connecter</p></a>
+      {% endif %}
+      </div>
+    </section>
+      {% endblock %}
+    </main>
+
+
+    <footer>
+        &copy; 2024 Mawuli Empire. Tous droits réservés.
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block title %} nos-livres {% endblock %}
+
+{% block content %}
+<h1>Inscription</h1>
+<section >
+<form class="signup" method="post">
+    {% csrf_token %}
+
+    {{ form.as_p}}
+
+    {% for error, message in errors.items %}
+        <h3 style="color:red;">
+            {{message}}
+        </h3>
+    {% endfor %}
+    <input type="submit" value="S'inscrire">
+</form>
+
+</section>
+{% endblock %}

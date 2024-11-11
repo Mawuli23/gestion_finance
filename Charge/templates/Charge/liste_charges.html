@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+    <title>{% block title %}Mes Charges{% endblock %}</title>
+    {% block content %}
+    <h1>Liste de mes Charges</h1>
+
+    <!-- Tableau pour les charges Fixes -->
+    <h2>Charges Fixes</h2>
+    <table>
+        <tr>
+            <th>Intitulé</th>
+            <th>Montant (€)</th>
+            <th>Action</th>
+        </tr>
+        {% for charge in charges_fixes %}
+            <tr>
+                <td>{{ charge.name }}</td>
+                <td>{{ charge.amount }} €</td>
+                <td>
+            <a href="{% url 'modifier_charge' charge.pk %}">Modifier</a> |
+            <a href="{% url 'supprimer_charge' charge.pk %}">Supprimer</a>
+        </td>
+            </tr>
+        {% empty %}
+            <tr><td colspan="4">Aucune charge fixe trouvée.</td></tr>
+        {% endfor %}
+        <tr>
+            <td ><strong>Total Fixes</strong></td>
+            <td colspan="2"><strong>{{ total_fixes }} €</strong></td>
+        </tr>
+    </table>
+
+    <!-- Tableau pour les charges Variables -->
+    <h2>Charges Variables</h2>
+    <table>
+        <tr>
+            <th>Intitulé</th>
+            <th>Montant (€)</th>
+            <th>Action</th>
+        </tr>
+        {% for charge in charges_variables %}
+            <tr>
+                <td>{{ charge.name }}</td>
+                <td>{{ charge.amount }} €</td>
+                <td>
+            <a href="{% url 'modifier_charge' charge.pk %}">Modifier</a> |
+            <a href="{% url 'supprimer_charge' charge.pk %}">Supprimer</a>
+        </td>
+            </tr>
+        {% empty %}
+            <tr><td colspan="4">Aucune charge variable trouvée.</td></tr>
+        {% endfor %}
+        <tr>
+            <td ><strong>Total Variables</strong></td>
+            <td colspan="2"><strong>{{ total_variables }} €</strong></td>
+        </tr>
+    </table>
+
+    <h3>Charge Globale : &ensp; &ensp; <strong>{{ total_global }} €</strong> </h3>
+
+    <a href="{% url 'ajouter_charge' %}">Ajouter une charge</a>
+    {% endblock %}

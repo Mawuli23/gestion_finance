@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+<title>{% block title %}Bilan Financier{% endblock %}</title>
+{% block content %}
+    
+<h1>Bilan Financier Mensuel</h1>
+
+    <table>
+        <tr>
+            <th>Catégorie</th>
+            <th>Montant (€)</th>
+            <th>Proportion Réelle</th>
+            <th>Proportion de Base</th>
+            <th>POSITIF</th>
+            <th>NÉGATIF</th>
+        </tr>
+        <tr>
+            <td>Charges fixes</td>
+            <td>{{ charges_fixes }}</td>
+            <td>{{ proportion_fixes }}%</td>
+            <td>{{ proportion_base_fixes }}%</td>
+            <td class="{% if not fixe_vrai %}positif-true{% endif %}">{% if not fixe_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+            <td class="{% if fixe_vrai %}negatif-true{% endif %}">{% if fixe_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Charges plaisir</td>
+            <td>{{ charges_plaisir }}</td>
+            <td>{{ proportion_plaisir }}%</td>
+            <td>{{ proportion_base_plaisir }}%</td>
+            
+            <td class="{% if not plaisir_vrai %}positif-true{% endif %}">{% if not plaisir_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+            <td class="{% if plaisir_vrai %}negatif-true{% endif %}">{% if plaisir_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Investissement</td>
+            <td>{{ investissement }}</td>
+            <td>{{ proportion_investissement }}%</td>
+            <td>{{ proportion_base_investissement }}%</td>
+            <td class="{% if investissement_vrai %}positif-true{% endif %}">{% if investissement_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+            <td class="{% if not investissement_vrai %}negatif-true{% endif %}">{% if not investissement_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Epargne</td>
+            <td>{{ epargne }}</td>
+            <td>{{ proportion_epargne }}%</td>
+            <td>{{ proportion_base_epargne }}%</td>
+            <td class="{% if epargne_vrai %}positif-true{% endif %}">{% if epargne_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+            <td class="{% if not epargne_vrai %}negatif-true{% endif %}">{% if not epargne_vrai %}VRAI{% else %}FAUX{% endif %}</td>
+        </tr>
+        <tr class="section-header">
+            <td colspan="6">RESTE À VIVRE + BILAN MENSUEL</td>
+        </tr>
+        <tr>
+            <td>RAV</td>
+            <td>{{ reste_a_vivre }} €</td>
+            <td >{{ proportion_rav }}%</td>
+            <td></td>
+            <td id="{% if positif %}positif{% endif %}">{% if positif %}VRAI{% else %}FAUX{% endif %}</td>
+            <td id="{% if negatif %}negatif{% endif %}">{% if negatif %}VRAI{% else %}FAUX{% endif %}</td>
+            
+        </tr>
+    </table>
+    {% endblock %}

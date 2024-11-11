@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Supprimer cette Épargne</h1>
+<p>Êtes-vous sûr de vouloir supprimer cette épargne de {{ epargne.amount }} € du {{ epargne.date }} ?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmer la suppression</button>
+    <a href="{% url 'liste_epargnes' %}">Annuler</a>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block title %} nos-livres {% endblock %}
+
+{% block content %}
+<h1>Connexion</h1>
+<section>
+
+<form class="login" method="post">
+    {% csrf_token %}
+
+    {{ form.as_p}}
+    {% for error, message in errors.items %}
+        <h3 style="color:red;">
+            {{message}}
+        </h3>
+    {% endfor %}
+    <input type="submit" value="Connexion">
+
+    <p>Vous n'avez pas de compte ?&nbsp;<a href="{% url 'signup' %}"> S'inscrire</a></p>
+
+    <p><a href="{% url 'password_reset' %}"> Mot de passe oublié</a></p>
+</form>
+
+</section>
+{% endblock %}

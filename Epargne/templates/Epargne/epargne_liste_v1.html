@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Liste des Épargnes</h1>
+
+<h2>Épargnes Mensuels</h2>
+<table>
+    <tr>
+        <th>Intitulé</th>
+        <th>Montant (€)</th>
+        <th>Action</th>
+    </tr>
+    {% for epargne in epargnes_mensuel %}
+    <tr>
+        <td>{{ epargne.name }}</td>
+        <td>{{ epargne.amount }}</td>
+        <td>
+            <a href="{% url 'modifier_epargne' epargne.pk %}">Modifier</a> |
+            <a href="{% url 'supprimer_epargne' epargne.pk %}">Supprimer</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">Aucune épargne trouvée.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>Épargnes Investissements</h2>
+<table>
+    <tr>
+        <th>Intitulé</th>
+        <th>Montant (€)</th>
+        <th>Action</th>
+    </tr>
+    {% for epargne in epargnes_investissement %}
+    <tr>
+        <td>{{ epargne.name }}</td>
+        <td>{{ epargne.amount }}</td>
+        <td>
+            <a href="{% url 'modifier_epargne' epargne.pk %}">Modifier</a> |
+            <a href="{% url 'supprimer_epargne' epargne.pk %}">Supprimer</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">Aucune épargne trouvée.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Epargne Total : &ensp; &ensp; <strong>{{ total_epargne }} €</strong> </h3>
+
+<a href="{% url 'ajouter_epargne' %}">Ajouter une épargne</a>
+{% endblock %}

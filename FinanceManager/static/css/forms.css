@@ -1,0 +1,128 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form p {
+  font-size: large;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form p label {
+  font-weight: bold;
+  text-align: left;
+  height: 2rem;
+  width: 12rem;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+form input {
+  height: 2.9rem;
+}
+
+form input,
+form textarea {
+  /*width: 100%;*/
+  flex: 1;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 13rem;
+  height: 4rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/*******/
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.signup p {
+  display: flex;
+  flex-direction: column;
+}
+.signup p label {
+  width: 100%;
+  margin-bottom: 0.2rem;
+}
+
+.signup p input {
+  height: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login input[type="submit"],
+.signup input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  height: 4rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.login input[type="submit"]:hover,
+.signup input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.deconnexion input[type="submit"] {
+  color: blue;
+  border: none;
+  background-color: white;
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+  font-size: medium;
+}
+
+.deconnexion input[type="submit"]:hover {
+  color: red;
+}
+
+
+.required {
+  color: red;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.error-list {
+  color: red;
+  font-size: 0.9em;
+  list-style-type: none;
+  padding: 0;
+}

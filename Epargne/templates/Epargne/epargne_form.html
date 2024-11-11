@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% if epargne %}Modifier{% else %}Ajouter{% endif %} une Épargne</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+    <a href="{% url 'liste_epargnes' %}">Annuler</a>
+</form>
+{% endblock %}

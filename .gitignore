@@ -1,0 +1,6 @@
+**/*.idea
+**/*.env
+
+# Python byte code
+*.pyc
+*.env
