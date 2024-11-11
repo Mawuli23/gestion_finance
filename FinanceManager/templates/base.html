@@ -33,6 +33,7 @@
       </form>
 
       {% else %}
+      <p>Créer un compte pour commencer</p>
       <a href="{% url 'signup' %}"><p>S'inscrire</p></a>
       <a href="{% url 'profile' %}"><p>Se connecter</p></a>
       {% endif %}
